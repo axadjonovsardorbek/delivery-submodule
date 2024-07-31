@@ -22,7 +22,8 @@ message UserRes{
     string id = 1;
     string username = 2;
     string role = 3;
-    string created_at = 4;
+    string phone = 4;
+    string created_at = 5;
 }
 
 message UserCreateReq{
@@ -30,10 +31,12 @@ message UserCreateReq{
     string email = 2;
     string password = 3;
     string role = 4;
+    string address = 5;
+    string phone = 6;
 }
 
 message UserLoginReq{
-    string username = 1;
+    string email = 1;
     string password = 2;
 }
 

@@ -9,3 +9,7 @@ message Void{}
 message ById{
     string id = 1;
 }
+
+message Filter{
+    
+}
