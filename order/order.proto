@@ -7,10 +7,10 @@ package order;
 import "common2.proto";
 
 service OrderService{
-    rpc Create(ProductCreateReq) returns(Void);
-    rpc GetById(ById) returns(ProductGetByIdRes);
-    rpc GetAll(Filter) returns(ProductGetAllRes);
-    rpc Update(ProductUpdateReq) returns(Void);
+    rpc Create(OrderCreateReq) returns(Void);
+    rpc GetById(ById) returns(Void);
+    rpc GetAll(Filter) returns(Void);
+    rpc Update(Void) returns(Void);
     rpc Delete(ById) returns(Void);
 }
 // id UUID PRIMARY KEY,
