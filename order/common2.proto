@@ -11,6 +11,5 @@ message ById{
 }
 
 message Filter{
-    int32 limit = 1;
-    int32 offset = 2;
+    int32 page = 1;
 }
