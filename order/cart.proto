@@ -9,7 +9,7 @@ import "common2.proto";
 service CartService{
     rpc Create(CartCreateReq) returns(Void);
     rpc GetById(ById) returns(CartGetByIdRes);
-    rpc GetAll(Filter) returns(CartGetAllRes);
+    rpc GetAll(CartGetAllReq) returns(CartGetAllRes);
     rpc Update(CartUpdateReq) returns(Void);
     rpc Delete(ById) returns(Void);
 }
@@ -40,6 +40,11 @@ message CartGetAllRes{
 message CartUpdateReq{
     string id = 1;
     CartCreateReq cart = 2;
+}
+
+message CartGetAllReq{
+    string user_id = 1;
+    Filter filter = 2;
 }
 
 

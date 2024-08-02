@@ -9,7 +9,7 @@ import "common2.proto";
 service ProductService{
     rpc Create(ProductCreateReq) returns(Void);
     rpc GetById(ById) returns(ProductGetByIdRes);
-    rpc GetAll(Filter) returns(ProductGetAllRes);
+    rpc GetAll(ProductGetAllReq) returns(ProductGetAllRes);
     rpc Update(ProductUpdateReq) returns(Void);
     rpc Delete(ById) returns(Void);
 }
@@ -40,4 +40,10 @@ message ProductGetAllRes{
 message ProductUpdateReq{
     string id = 1;
     ProductCreateReq product = 2;
+}
+
+message ProductGetAllReq{
+    string name = 1;
+    int32 price = 2;
+    Filter filter = 3;
 }
