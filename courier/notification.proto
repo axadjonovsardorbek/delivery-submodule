@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option go_package = "genproto/courier";
+
+package courier;
+
+import "common3.proto";
+
+service NotificationService{
+    rpc Create(NotificationCreateReq) returns(Void);
+    rpc GetById(ById) returns(NotificationGetByIdRes);
+    rpc GetAll(NotificationGetAllReq) returns(NotificationGetAllRes);
+    rpc Update(NotificationUpdateReq) returns(Void);
+    rpc Delete(ById) returns(Void);
+}
+
+message NotificationRes{
+    string id = 1;
+    string user_id = 2;
+    string message = 3;
+    string is_read = 4;
+    string created_at = 5;
+}
+
+message NotificationCreateReq{
+    string user_id = 1;
+    string message = 2;
+}
+
+message NotificationGetByIdRes{
+    NotificationRes notification = 1;
+}
+
+message NotificationGetAllRes{
+    repeated NotificationRes notifications = 1;
+}
+
+message NotificationGetAllReq{
+    string user_id = 1;
+    string is_read = 2;
+    Filter filter = 3;
+}
+
+message NotificationUpdateReq{
+    string id = 1;
+    string is_read = 2;
+}

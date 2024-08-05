@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "genproto/courier";
+
+package courier;
+
+message Void{}
+
+message ById{
+    string id = 1;
+}
+
+message Filter{
+    int32 page = 1;
+}
