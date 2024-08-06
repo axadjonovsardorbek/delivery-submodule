@@ -22,7 +22,7 @@ message CartRes{
 
 message CartCreateReq{
     string user_id = 1;
-    string total_amount = 2;
+    int64 total_amount = 2;
 }
 
 message CartGetByIdRes{
