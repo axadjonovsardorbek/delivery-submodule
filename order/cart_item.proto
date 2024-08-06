@@ -11,7 +11,7 @@ service CartItemService{
     rpc GetById(ById) returns(CartItemGetByIdRes);
     rpc GetAll(CartItemGetAllReq) returns(CartItemGetAllRes);
     rpc Update(CartItemUpdateReq) returns(Void);
-    rpc Delete(ById) returns(Void);
+    rpc Delete(ById) returns(ById);
     rpc GetTotalAmount(GetTotalAmountReq) returns(GetTotalAmountRes);
 }
 
