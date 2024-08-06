@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option go_package = "genproto/order";
+
+package order;
+
+import "common2.proto";
+
+service CartItemService{
+    rpc Create(CartItemCreateReq) returns(Void);
+    rpc GetById(ById) returns(CartItemGetByIdRes);
+    rpc GetAll(CartItemGetAllReq) returns(CartItemGetAllRes);
+    rpc Update(CartItemUpdateReq) returns(Void);
+    rpc Delete(ById) returns(Void);
+    rpc GetTotalAmount(GetTotalAmountReq) returns(GetTotalAmountRes);
+}
+
+message CartItemRes{
+    string id = 1;
+    string user_id = 2;
+    string product_id = 3;
+    string cart_id = 4;
+    int32 quantity = 5;
+}
+
+message CartItemCreateReq{
+    string user_id = 1;
+    string product_id = 2;
+    string cart_id = 3;
+    int32 quantity = 4;
+}
+
+message CartItemGetByIdRes{
+    CartItemRes cart_item = 1;
+}
+
+message CartItemGetAllRes{
+    repeated CartItemRes cart_items = 1;
+}
+
+message CartItemUpdateReq{
+    string id = 1;
+    int32 quantity = 2;
+    string user_id = 3;
+}
+
+message CartItemGetAllReq{
+    string user_id = 1;
+    string cart_id = 2;
+    Filter filter = 3;
+}
+
+message GetTotalAmountReq{
+    string user_id = 1;
+    string cart_id = 2;
+}
+
+message GetTotalAmountRes{
+    int64 total_amount = 1;
+}

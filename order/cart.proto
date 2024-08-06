@@ -17,16 +17,12 @@ service CartService{
 message CartRes{
     string id = 1;
     string user_id = 2;
-    string product_id = 3;
-    int32 quantity = 4;
-    string options = 5;
+    int64 total_amount = 3;
 }
 
 message CartCreateReq{
     string user_id = 1;
-    string product_id = 2;
-    int32 quantity = 3;
-    string options = 4;
+    string total_amount = 2;
 }
 
 message CartGetByIdRes{
@@ -39,20 +35,11 @@ message CartGetAllRes{
 
 message CartUpdateReq{
     string id = 1;
-    CartCreateReq cart = 2;
+    int64 total_amount = 2;
+    string user_id = 3;
 }
 
 message CartGetAllReq{
     string user_id = 1;
     Filter filter = 2;
 }
-
-
-// id UUID PRIMARY KEY,
-// user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-// product_id UUID REFERENCES products(id) ON DELETE CASCADE,
-// quantity INTEGER NOT NULL,
-// options VARCHAR(256),
-// created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-// updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-// deleted_at BIGINT DEFAULT 0
