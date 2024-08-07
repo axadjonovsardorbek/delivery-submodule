@@ -16,7 +16,7 @@ service UserService{
     rpc ForgotPassword(UsersForgotPassword) returns(Void);
     rpc ResetPassword(UsersResetPassword) returns(Void);
     rpc ChangePassword(UsersChangePassword) returns(Void);
-    rpc CheckEmail(Void) returns(ById);
+    rpc CheckEmail(CheckEmail) returns(ById);
 }
 
 message UserRes{
