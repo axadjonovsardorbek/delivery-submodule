@@ -10,9 +10,10 @@ service CartItemService{
     rpc Create(CartItemCreateReq) returns(Void);
     rpc GetById(ById) returns(CartItemGetByIdRes);
     rpc GetAll(CartItemGetAllReq) returns(CartItemGetAllRes);
-    rpc Update(CartItemUpdateReq) returns(ById);
-    rpc Delete(ById) returns(ById);
+    rpc Update(CartItemUpdateReq) returns(Void);
+    rpc Delete(ById) returns(Void);
     rpc GetTotalAmount(GetTotalAmountReq) returns(GetTotalAmountRes);
+    rpc GetCartId(ById) returns(ById);
 }
 
 message CartItemRes{
