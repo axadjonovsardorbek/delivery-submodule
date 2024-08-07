@@ -16,7 +16,7 @@ service UserService{
     rpc ForgotPassword(UsersForgotPassword) returns(Void);
     rpc ResetPassword(UsersResetPassword) returns(Void);
     rpc ChangePassword(UsersChangePassword) returns(Void);
-    rpc CheckEmail(CheckEmail) returns(ById);
+    rpc CheckEmail(CheckEmailReq) returns(ById);
 }
 
 message UserRes{
@@ -68,6 +68,6 @@ message UsersResetPassword{
     string email = 3;
 }
 
-message CheckEmail{
+message CheckEmailReq{
     string email = 1;
 }
