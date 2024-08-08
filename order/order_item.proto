@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option go_package = "genproto/order";
+
+package order;
+
+import "common2.proto";
+
+service OrderItemService{
+    rpc Create(OrderItemCreateReq) returns(Void);
+    rpc GetById(ById) returns(OrderItemGetByIdRes);
+    rpc GetAll(OrderItemGetAllReq) returns(OrderItemGetAllRes);
+}
+
+message OrderItemRes{
+    string id = 1;
+    string order_id = 2;
+    string product_id = 3;
+    int32 quantity = 4;
+}
+
+message OrderItemCreateReq{
+    string order_id = 1;
+    string product_id = 2;
+    int32 quantity = 3;
+}
+
+message OrderItemGetByIdRes{
+    OrderItemRes order = 1;
+}
+
+message OrderItemGetAllRes{
+    repeated OrderItemRes orders = 1;
+}
+message OrderItemGetAllReq{
+    string order_id = 1;
+}

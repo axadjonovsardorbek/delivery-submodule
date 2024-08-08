@@ -8,20 +8,21 @@ import "common2.proto";
 
 service OrderService{
     rpc Create(OrderCreateReq) returns(Void);
-    rpc GetById(ById) returns(Void);
-    rpc GetAll(Filter) returns(Void);
-    rpc Update(Void) returns(Void);
+    rpc GetById(ById) returns(OrderGetByIdRes);
+    rpc GetAll(OrderGetAllReq) returns(OrderGetAllRes);
+    rpc Update(OrderUpdateReq) returns(Void);
     rpc Delete(ById) returns(Void);
 }
-// id UUID PRIMARY KEY,
-// user_id UUID REFERENCES users(id),
-// courier_id UUID REFERENCES users(id),
-// status order_status NOT NULL DEFAULT 'pending',
-// total_amount INTEGER NOT NULL,
-// delivery_address TEXT NOT NULL,
-// created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-// updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-// deleted_at BIGINT DEFAULT 0
+
+message OrderRes{
+    string id = 1;
+    string user_id = 2;
+    string courier_id = 3;
+    string status = 4;
+    int64 total_amount = 5;
+    string delivery_address = 6;
+    string delivery_schedule = 7;
+}
 
 message OrderCreateReq{
     string user_id = 1;
@@ -29,4 +30,26 @@ message OrderCreateReq{
     string status = 3;
     int64 total_amount = 4;
     string delivery_addres = 5;
+    string delivery_schedule = 6;
+}
+
+message OrderGetByIdRes{
+    OrderRes order = 1;
+}
+
+message OrderGetAllRes{
+    repeated OrderRes orders = 1;
+}
+
+message OrderUpdateReq{
+    string id = 1;
+    string courier_id = 2;
+    string status = 3;
+}
+
+message OrderGetAllReq{
+    string status = 1;
+    string user_id = 2;
+    string courier_id = 3;
+    Filter filter = 4;
 }
