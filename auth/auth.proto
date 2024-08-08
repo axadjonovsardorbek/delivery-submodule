@@ -17,6 +17,7 @@ service UserService{
     rpc ResetPassword(UsersResetPassword) returns(Void);
     rpc ChangePassword(UsersChangePassword) returns(Void);
     rpc CheckEmail(CheckEmailReq) returns(ById);
+    rpc GetAllUsers(GetAllUsersReq) returns(GetAllUsersRes);
 }
 
 message UserRes{
@@ -70,4 +71,13 @@ message UsersResetPassword{
 
 message CheckEmailReq{
     string email = 1;
+}
+
+message GetAllUsersReq{
+    string role = 1;
+    int32 page = 2;
+}
+
+message GetAllUsersRes{
+    repeated UserRes users = 1;
 }
