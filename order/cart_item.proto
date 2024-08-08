@@ -48,7 +48,6 @@ message CartItemUpdateReq{
 message CartItemGetAllReq{
     string user_id = 1;
     string cart_id = 2;
-    Filter filter = 3;
 }
 
 message GetTotalAmountReq{

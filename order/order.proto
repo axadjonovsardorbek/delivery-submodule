@@ -7,7 +7,7 @@ package order;
 import "common2.proto";
 
 service OrderService{
-    rpc Create(OrderCreateReq) returns(Void);
+    rpc Create(OrderCreateReq) returns(ById);
     rpc GetById(ById) returns(OrderGetByIdRes);
     rpc GetAll(OrderGetAllReq) returns(OrderGetAllRes);
     rpc Update(OrderUpdateReq) returns(Void);
