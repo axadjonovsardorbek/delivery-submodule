@@ -12,6 +12,7 @@ service OrderService{
     rpc GetAll(OrderGetAllReq) returns(OrderGetAllRes);
     rpc Update(OrderUpdateReq) returns(Void);
     rpc Delete(ById) returns(Void);
+    rpc Orders(OrderGetAllReq) returns(OrderGetAllRes);
 }
 
 message OrderRes{
