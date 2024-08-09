@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option go_package = "genproto/courier";
+
+package courier;
+
+import "common3.proto";
+
+service CourierLocationService{
+    rpc Create(LocationCreateReq) returns(Void);
+    rpc GetById(ById) returns(LocationGetByIdRes);
+    rpc GetAll(LocationGetAllReq) returns(LocationGetAllRes);
+    rpc Update(LocationUpdateReq) returns(Void);
+    rpc Delete(ById) returns(Void);
+}
+
+message LocationRes{
+    string id = 1;
+    string courier_id = 2;
+    string location = 3;
+}
+
+message LocationCreateReq{
+    string courier_id = 1;
+    string location = 2;
+}
+
+message LocationGetByIdRes{
+    LocationRes location = 1;
+}
+
+message LocationGetAllRes{
+    repeated LocationRes tasks = 1;
+}
+
+message LocationGetAllReq{
+    string courier_id = 1;
+    Filter filter = 2;
+}
+
+message LocationUpdateReq{
+    string id = 1;
+    string location = 2;
+}
